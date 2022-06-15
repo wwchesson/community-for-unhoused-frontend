@@ -2,7 +2,7 @@ import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background: #165e08;
+  background: blue;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@ export const NavMenu = styled.div`
 export const Card = styled.div`
   width: 350px;
   height: 520px;
-  background-color: #f78e31;
+  background-color: #08b7fc;
   margin: 10px;
   padding: 10px;
   object-fit: contain;
@@ -45,8 +45,8 @@ export const Card = styled.div`
 
 export const ActCard = styled.div`
   width: 350px;
-  height: 350px;
-  background-color: #f78e31;
+  height: 150px;
+  background-color: #08b7fc;
   margin: 10px;
   padding: 10px;
   object-fit: contain;
@@ -62,7 +62,7 @@ padding: 20px;
 export const H3 = styled.div`
   color: black;
   text-align: center;
-  font-family: "Roboto";
+  // font-family: "Roboto";
   font-size: 3em;
   padding: 5px;
 `;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Card } from "./StyleElements";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 function Resident({ resident, onUpdateResident, onDeleteResident }) {
-  const navigate = useNavigate();
   const { id, name, ssn, age, email, needs, interests } = resident;
 
   const [showUpdateForm, setShowUpdateForm] = useState(false);
@@ -42,10 +42,8 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
         "Content-Type": "application/json",
       },
     })
-      .then((r) => r.json())
-      .then((id) => {
+      .then(() => {
         onDeleteResident(id);
-        navigate("/residents");
     });
   }
 
@@ -67,7 +65,9 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
 
   return (
     <Card>
-      <h3>{name}</h3>
+      <h3><Link to={`/residents/${id}`}>{name}</Link></h3>
+      <h5 className="instructions">Click on the link above to see resident's activities</h5>
+      <br/>
       <h4>SSN: {ssn}</h4>
       <h4> Age: {age}</h4>
       <h4>Email Address: {email}</h4>

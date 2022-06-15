@@ -4,6 +4,7 @@ import ResidentsList from "./ResidentsList";
 import NavBar from "./NavBar";
 import ResidentIntake from "./ResidentIntake";
 import Activities from "./Activities";
+import Home from "./Home";
 
 function App() {
   const [residents, setResidents] = useState([]);
@@ -42,7 +43,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         <Route
           path="/residents"
           element={
@@ -62,13 +63,7 @@ function App() {
             />
           }
         />
-         <Route
-          path="/activities"
-          element={
-            <Activities
-            />
-          }
-        />
+        <Route path="/residents/:id" element={<Activities/>}></Route>
       </Routes>
     </div>
   );

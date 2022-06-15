@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home-text{
+  text-align: center;
+}
+
+.resident-form{
+  text-align: center;
+}
+
+.input-text{
+  padding: 10px;
+  margin: 10px;
+}
+
+.btn{
+  padding: 10px;
+  margin: 10px;
+}
+
+.instructions{
+  padding: 0px;
+  margin: 0px;
+}

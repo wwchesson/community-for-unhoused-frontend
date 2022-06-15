@@ -1,21 +1,22 @@
 import React, {useState, useEffect} from "react";
 import { Tiles, H3} from "./StyleElements"
 import Activity from "./Activity";
+import {useParams} from "react-router-dom"
 
 function Activities(){
-    const [activities, setActivities] = useState([]);
+    const [resident, setResident] = useState({activities: []});
+    const { id } = useParams();
     const [actFormData, setActFormData] = useState({
         activity: "",
         day_of_week: "",
-        instructor: "",
-        resident_name: ""
-
+        instructor: ""
     })
 
     useEffect(() => {
-        fetch("http://localhost:9292/activities")
+        fetch(`http://localhost:9292/residents/${id}`)
         .then(r => r.json())
-        .then((data) => setActivities(data))
+        .then((data) => {
+          setResident(data)})
     }, []);
 
     function handleActInputChange(event) {
@@ -23,17 +24,20 @@ function Activities(){
     }
 
     function handleAddNewActivity(newActivity) {
-        setActivities([...actFormData, newActivity])
+        const residentCopy = {...resident};
+        residentCopy.activities.push(newActivity);
+        setResident(residentCopy)
     }
     
       function handleActivitySubmit(e) {
         e.preventDefault();
+        const activityData = {...actFormData, resident_id: id}
         fetch("http://localhost:9292/activities", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(actFormData)
+            body: JSON.stringify(activityData)
         })
         .then(r => r.json())
         .then((newActivity) => {
@@ -42,28 +46,26 @@ function Activities(){
                 activity: "",
                 day_of_week: "",
                 instructor: "",
-                resident_name: ""
-        
             })
         })
       }
 
+      const activityCard = resident.activities.map((act) => <Activity key={act.id} act={act}/>)
+
     return (
         <div className="activities">
-        <H3>Activities</H3>
+          <br/>
+        <H3><strong>{resident.name}'s Activities</strong></H3>
         <Tiles>
-            {activities.map((act) => (
-                <Activity key={act.id} act={act}></Activity>
-            ))}
+           {activityCard}
         </Tiles>
         <br/>
         <div className="new-act-form">
-            <H3>Create a New Activity</H3>
             <div className="submit-form">
       <form className="resident-form" onSubmit={handleActivitySubmit}>
-        <h3 className="add-resident">
-          <strong>New Activity Form</strong>
-        </h3>
+        <h1 className="add-resident">
+          New Activity Form
+        </h1>
         <input
           type="text"
           name="activity"
@@ -90,15 +92,7 @@ function Activities(){
           placeholder="Instructor's name"
           className="input-text"
         ></input>
-        <br />
-        <input
-          type="text"
-          name="resident_name"
-          value={actFormData.resident_name}
-          onChange={handleActInputChange}
-          placeholder="Resident's name"
-          className="input-text"
-        ></input>
+      
         <br />
         <input
           type="submit"

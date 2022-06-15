@@ -13,7 +13,6 @@ function NavBar() {
             Residents
           </NavLink>
           <NavLink to="/resident_intake">Resident Intake</NavLink>
-          <NavLink to="/activities">Activities</NavLink>
         </NavMenu>
       </Nav>
     </div>
