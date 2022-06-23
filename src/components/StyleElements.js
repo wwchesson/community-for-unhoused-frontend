@@ -36,7 +36,7 @@ export const NavMenu = styled.div`
 
 export const Card = styled.div`
   width: 350px;
-  height: 520px;
+  height: 600px;
   background-color: #08b7fc;
   margin: 10px;
   padding: 10px;

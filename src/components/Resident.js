@@ -87,7 +87,7 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
               value={updateFormData.name}
               onChange={handleUpdateInputChange}
               placeholder="Enter resident's name"
-              className="input-text"
+              className="input-update-resident"
             ></input>
             <br />
             <input
@@ -96,7 +96,7 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
               value={updateFormData.ssn}
               onChange={handleUpdateInputChange}
               placeholder="SSN"
-              className="input-text"
+              className="input-update-resident"
             ></input>
             <br />
             <input
@@ -105,7 +105,7 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
               value={updateFormData.age}
               onChange={handleUpdateInputChange}
               placeholder="Age"
-              className="input-text"
+              className="input-update-resident"
             ></input>
             <br />
 
@@ -115,7 +115,7 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
               value={updateFormData.email}
               onChange={handleUpdateInputChange}
               placeholder="Email address"
-              className="input-text"
+              className="input-update-resident"
             ></input>
             <br />
             <input
@@ -124,7 +124,7 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
               value={updateFormData.needs}
               onChange={handleUpdateInputChange}
               placeholder="Resident's needs"
-              className="input-text"
+              className="input-update-resident"
             ></input>
             <br />
             <input
@@ -133,7 +133,7 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
               value={updateFormData.interests}
               onChange={handleUpdateInputChange}
               placeholder="Resident's interests"
-              className="input-text"
+              className="input-update-resident"
             ></input>
             <br />
             <input
@@ -150,3 +150,5 @@ function Resident({ resident, onUpdateResident, onDeleteResident }) {
 }
 
 export default Resident;
+
+
